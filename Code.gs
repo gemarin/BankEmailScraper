@@ -8,7 +8,7 @@ function getRelevantMessages()
 {
   //searches through gmail to find transaction emails, with a limit of 10 results (start is 0 and max is 10) in order to make the search go faster
   //Gmail.app will return an array of Gmail threads matching this query
-  var filter = 'newer_than:13d AND from:no.reply.alerts@chase.com OR from:gmarin1997@gmail.com AND subject:your "transaction with" AND label:inbox AND NOT label:payment_processing_done';
+  var filter = 'newer_than:13d AND from:no.reply.alerts@chase.com OR from:[YOUR EMAIL HERE] AND subject:your "transaction with" AND label:inbox AND NOT label:payment_processing_done';
   var threads = GmailApp.search(filter);
   
   //creating an array and saving the emails found to the array
@@ -94,7 +94,7 @@ function doGet()
 //now to save the data to a google sheet :)
 function saveDataToSheet(records)
 {
-  var spreadsheet = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1vBvZ1X0sVvdo7Do-AqiP65gfqn1fqDMxGyZFlwmelTs/edit?usp=sharing");
+  var spreadsheet = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/[YOUR SPREADSHEET HERE]");
   var sheet = spreadsheet.getSheetByName("Transactions");
   Logger.log("RECORDS: " + records);
 
